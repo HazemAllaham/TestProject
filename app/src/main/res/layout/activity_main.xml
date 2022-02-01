@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         app:fabCradleMargin="20dp"
         app:fabCradleVerticalOffset="10dp"
-        android:background="#000000"
+        android:theme="@style/ThemeOverlay.AppTheme.BottomNavigationView"
         app:fabCradleRoundedCornerRadius="20dp"
         android:layout_gravity="bottom">
 

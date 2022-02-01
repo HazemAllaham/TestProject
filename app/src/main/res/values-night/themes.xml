@@ -15,7 +15,7 @@
     </style>
 
     <style name="ThemeOverlay.AppTheme.BottomNavigationView" parent="@style/ThemeOverlay.MaterialComponents">
-        <item name="colorSurface">@null</item>
+        <item name="colorSurface">@color/black</item>
     </style>
 
 </resources>
