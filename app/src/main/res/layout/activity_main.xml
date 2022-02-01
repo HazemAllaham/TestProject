@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bacground"
+    tools:context=".MainActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:src="@drawable/org_logo" />
+
+
+        <LinearLayout
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="46"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:src="@drawable/cap" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:src="@drawable/doing_good_icon" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity=""
+                android:src="@drawable/person_icon" />
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_400sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+
+            >
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/mPager"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
+
+            </androidx.viewpager2.widget.ViewPager2>
+
+        </LinearLayout>
+
+
+
+
+
+    <com.akshay.library.CurveBottomBar
+        android:id="@+id/curveBottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_gravity="bottom|center"
+        app:bottomBarColor="@color/black"
+        android:background="@color/black"
+        app:curveRadius="25dp"
+        app:itemIconTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center|start"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center|start"
+                android:padding="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                >
+
+                <ImageView
+                    android:id="@+id/img_person"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:src="@drawable/profile_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_person"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Person"
+                    android:fontFamily="@font/fbspacer_black"
+                    android:textColor="@color/white"
+
+                    >
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center|start"
+                android:padding="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                >
+
+                <ImageView
+                    android:id="@+id/img_smile"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/doing_good_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_smile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Smile"
+                    android:fontFamily="@font/fbspacer_black"
+                    android:textColor="@color/white"
+                    >
+
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center|end"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center|start"
+                android:padding="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                >
+
+                <ImageView
+                    android:id="@+id/img_gift"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:src="@drawable/gift_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_gift"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Gift"
+                    android:fontFamily="@font/fbspacer_black"
+                    android:textColor="@color/white"
+
+                    >
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center|start"
+                android:padding="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                >
+
+                <ImageView
+                    android:id="@+id/img_home"
+                    android:clickable="true"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/home_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:fontFamily="@font/fbspacer_black"
+                    android:textColor="@color/white"
+                    >
+
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.akshay.library.CurveBottomBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:id="@+id/floatingActionButton"
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:background="@color/white"
+        android:foreground="@drawable/cta_bottle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
