@@ -1,27 +1,24 @@
 package com.honor.unitonetestproject
 
-import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.content.ContextCompat
+import android.provider.ContactsContract
+import android.view.MenuItem
+import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.akshay.library.CurveBottomBar
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.honor.unitonetestproject.Adapter.SliderAdapter
 import com.honor.unitonetestproject.Model.SliderItem
+import com.honor.unitonetestproject.Ui.DoingGood_Fragment
+import com.honor.unitonetestproject.Ui.Main_Fragment
+import com.honor.unitonetestproject.Ui.MyPrezi_Fragment
+import com.honor.unitonetestproject.Ui.Profile_Fragment
 import com.honor.unitonetestproject.databinding.ActivityMainBinding
-import kotlin.collections.ArrayList
 import kotlin.math.abs
 
 
@@ -29,12 +26,34 @@ const  val NUM_PAGES = 1
 
 class MainActivity : FragmentActivity() {
 
-
-    private lateinit var sliderItemList : ArrayList<SliderItem>
-    private lateinit var sliderAdapter:SliderAdapter
-    private lateinit var sliderHandeler : Handler
-    private lateinit var sliderRun : Runnable
     private lateinit var binding: ActivityMainBinding
+
+    // listener For items
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+
+            when (item.itemId) {
+
+                R.id.profile_item -> {
+                    loadFragment(Profile_Fragment(), true)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.doing_good_item -> {
+                    loadFragment(DoingGood_Fragment(), true)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.my_prezi_item -> {
+                    loadFragment(MyPrezi_Fragment(), true)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.feed_item -> {
+                    loadFragment(Main_Fragment(), true)
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+
+            false
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,75 +61,31 @@ class MainActivity : FragmentActivity() {
         val view = binding.root
         setContentView(view)
 
-         binding.bottomNavigationView.background = null
-         binding.bottomNavigationView.menu.getItem(2).isEnabled = true
-
-        sliderItem()
-        itemSliderView()
+        binding.bottomNavigationView.background = null
+        binding.bottomNavigationView.menu.getItem(2).isEnabled = true
 
 
-    }
+        // to Make the Home item Selectable directly
+        val item: MenuItem = binding.bottomNavigationView.getMenu().findItem(R.id.feed_item)
+        item.isChecked = true
 
 
-    private fun sliderItem() {
-
-        sliderItemList = ArrayList()
-        sliderAdapter = SliderAdapter(binding.mPager,sliderItemList)
-        binding.mPager.adapter = sliderAdapter
-        binding.mPager.clipToPadding = false
-        binding.mPager.clipChildren = false
-        binding.mPager.offscreenPageLimit = 3
-        binding.mPager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-
-        val comPosrPageTner = CompositePageTransformer()
-        comPosrPageTner.addTransformer(MarginPageTransformer(40))
-        comPosrPageTner.addTransformer { page, position ->
-
-            val r:Float = 1 - abs(position)
-            page.scaleY = 0.85f + r * 0.15f
+        loadFragment(Main_Fragment(), true)
+        binding.floatActionBtn.setOnClickListener {
+            loadFragment(Main_Fragment(), true)
         }
 
-        binding.mPager.setPageTransformer(comPosrPageTner)
-        sliderHandeler = Handler()
-        sliderRun = Runnable {
-            binding.mPager.currentItem = binding.mPager.currentItem +1
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-        }
-        binding.mPager.registerOnPageChangeCallback(
-            object :ViewPager2.OnPageChangeCallback(){
-
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-                    sliderHandeler.removeCallbacks(sliderRun)
-                    sliderHandeler.postDelayed(sliderRun,90000)
-                }
-            }
-
-        )
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        sliderHandeler.removeCallbacks(sliderRun)
-
+     fun loadFragment(fragment: Fragment, clearBackStackEntry: Boolean) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
-    override fun onPause() {
-        super.onPause()
-        sliderHandeler.postDelayed(sliderRun,200000)
-
-    }
-
-
-    private fun itemSliderView() {
-
-        sliderItemList.add(SliderItem(R.drawable.person_test_2))
-        sliderItemList.add(SliderItem(R.drawable.person_test_2))
-        sliderItemList.add(SliderItem(R.drawable.person_test_2))
-        sliderItemList.add(SliderItem(R.drawable.person_test_2))
-        sliderItemList.add(SliderItem(R.drawable.personphoto))
-
-    }
 }
 

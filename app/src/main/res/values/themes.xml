@@ -18,4 +18,9 @@
         <item name="colorSurface">@color/black</item>
     </style>
 
+    <style name="BottomNavigationViewTextStyle">
+        <item name="android:fontFamily">@font/gotham_medium</item>
+    </style>
+
+
 </resources>

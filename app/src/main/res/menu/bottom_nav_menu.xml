@@ -2,25 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:id="@+id/profile"
-        android:title="Settings"
+    <item android:id="@+id/profile_item"
+        android:title="Profile"
         android:icon="@drawable/profile_icon" />
 
-    <item android:id="@+id/smile"
-        android:title="Profile"
-        android:icon="@drawable/doing_good_icon" />
+    <item android:id="@+id/doing_good_item"
+        android:title="Doing good"
+        android:icon="@drawable/doing_good_img" />
 
 
     <item android:id="@+id/placeholder"
         android:title="" />
 
-    <item android:id="@+id/gift"
-        android:title="Search"
+
+    <item android:id="@+id/my_prezi_item"
+        android:title="My Prezi"
         android:icon="@drawable/gift_icon" />
 
 
-    <item android:id="@+id/miHome"
-        android:title="Home"
+    <item android:id="@+id/feed_item"
+        android:title="Feed"
         android:icon="@drawable/home_icon" />
 
 </menu>

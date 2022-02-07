@@ -13,7 +13,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_70sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,21 +22,23 @@
         <ImageView
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center|start"
             android:layout_marginStart="@dimen/_25sdp"
             android:src="@drawable/org_logo" />
 
 
         <LinearLayout
             android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_45sdp"
+            android:layout_height="@dimen/_55sdp"
             android:layout_gravity="end|center"
+            android:gravity="center"
             android:layout_marginEnd="@dimen/_10sdp"
             android:orientation="horizontal">
 
 
             <LinearLayout
                 android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_45sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -51,15 +53,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="46"
+                        android:text="172"
+                        android:fontFamily="@font/fbspacer_regular"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textSize="20sp" />
 
                     <ImageView
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:src="@drawable/cap" />
+                        android:src="@drawable/feed_gain_cap" />
 
                 </LinearLayout>
 
@@ -69,30 +72,34 @@
                     android:layout_gravity="center|end"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:gravity="center"
+                    android:layout_marginTop="@dimen/_3sdp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:text="2"
+                        android:fontFamily="@font/fbspacer_regular"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textSize="20sp" />
 
                     <ImageView
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:src="@drawable/doing_good_icon" />
+                        android:src="@drawable/doing_good_img" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:layout_gravity=""
-                android:src="@drawable/person_icon" />
+                android:src="@drawable/persontow"
+                app:civ_border_width="3dp"
+                app:civ_border_color="#323232"/>
 
         </LinearLayout>
 
@@ -100,54 +107,51 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_400sdp"
-            android:layout_gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
 
-            >
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="@dimen/_400sdp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginBottom="@dimen/_90sdp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        >
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/mPager"
-                android:paddingStart="@dimen/_20sdp"
-                android:paddingEnd="@dimen/_20sdp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+    </FrameLayout>
 
-                >
-
-            </androidx.viewpager2.widget.ViewPager2>
-
-        </LinearLayout>
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
+
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fabCradleMargin="20dp"
+        android:layout_height="@dimen/_50sdp"
+        app:fabCradleMargin="15dp"
         app:fabCradleVerticalOffset="10dp"
         android:theme="@style/ThemeOverlay.AppTheme.BottomNavigationView"
-        app:fabCradleRoundedCornerRadius="20dp"
+        app:fabCradleRoundedCornerRadius="10dp"
         android:layout_gravity="bottom">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="16dp"
-            app:labelVisibilityMode="labeled"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_5sdp"
+            app:itemTextAppearanceActive="@style/BottomNavigationViewTextStyle"
+            app:itemTextAppearanceInactive="@style/BottomNavigationViewTextStyle"            app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_nav_menu" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/float_action_btn"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
         android:foreground="@drawable/cta_bottle"
         app:layout_anchor="@id/bottomAppBar" />
 

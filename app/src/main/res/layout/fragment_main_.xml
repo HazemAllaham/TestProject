@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bacground"
+    tools:context=".Ui.Main_Fragment">
+
+
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/mPager"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -9,6 +9,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_400sdp"
+        android:layout_gravity="center|bottom"
         app:cardBackgroundColor="@color/white"
         >
 
@@ -38,8 +39,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hello !"
-                android:fontFamily="@font/gotham_bold"
+                android:text="כמה אתם מבינים בסרטים?"
+                android:fontFamily="@font/fbspacer_black"
                 android:layout_gravity="end"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_20sdp"
@@ -48,7 +49,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Welcom to .."
+                android:layout_gravity="end"
+                android:text="כמה גלו כמה אתם בעלי "
+                android:fontFamily="@font/fbspacer_regular"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_18sdp"
                 />
@@ -58,7 +61,7 @@
         <ImageView
             android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_65sdp"
-            android:src="@drawable/gift"
+            android:src="@drawable/feed_gain_cap"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_72sdp"
